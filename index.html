@@ -11,7 +11,14 @@
     <div class="container">
     <div ng-controller="CalcCtrl as calc">
       <h1 class="text-center">ROI Calculator</h1>
+
       <!-- Revenue start -->
+      <div class="row text-center form-group">
+        <div class="col-md-12">
+          {{Revenue results go here}}
+        </div>
+      </div>
+
       <div class="row text-center form-group">
         <div class="col-md-12">
           <label for="itemName">Item Name</label>
@@ -30,6 +37,12 @@
       <!-- Expense start -->
       <div class="row text-center form-group">
         <div class="col-md-12">
+          {{Expense results go here}}
+        </div>
+      </div>
+
+      <div class="row text-center form-group">
+        <div class="col-md-12">
           <label for="itemName">Item Name</label>
           <input type="text" name="" value="">
 
@@ -42,7 +55,123 @@
           <button type="button" name="button" class="btn btn-primary">Add Expense Item</button>
         </div>
       </div> <!-- Expense end -->
+
+<div class="row">
+      <div class="col-md-6">
+        <div class="header">
+          <p class="title">Revenue</p>
+        </div>
+        <div class="charges">
+          <div class="form-group clearfix">
+            <div class="col-sm-4">
+              <label for="oneTimeRv">One-Time:</label>
+            </div>
+            <div class="col-sm-8">
+              {{ calc.meal.oneTimeRv() }}
+            </div>
+          </div>
+          <div class="form-group clearfix">
+            <div class="col-sm-4">
+              <label for="monthlyRv">Monthly:</label>
+            </div>
+            <div class="col-sm-8">
+              {{ calc.meal.monthlyRv() | currency }}
+            </div>
+          </div>
+
+          <div class="form-group clearfix">
+            <div class="col-sm-4">
+              <label for="totalRv">Total:</label>
+            </div>
+            <div class="col-sm-8">
+              {{ calc.meal.totalRv() | currency }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="header">
+          <p class="title">Expenses</p>
+        </div>
+        <div class="charges">
+          <div class="form-group clearfix">
+            <div class="col-sm-4">
+              <label for="oneTimeExp">One-Time:</label>
+            </div>
+            <div class="col-sm-8">
+              {{ calc.meal.oneTimeExp() }}
+            </div>
+          </div>
+          <div class="form-group clearfix">
+            <div class="col-sm-4">
+              <label for="monthlyExp">Monthly:</label>
+            </div>
+            <div class="col-sm-8">
+              {{ calc.meal.monthlyExp() | currency }}
+            </div>
+          </div>
+
+          <div class="form-group clearfix">
+            <div class="col-sm-4">
+              <label for="totalExp">Total:</label>
+            </div>
+            <div class="col-sm-8">
+              {{ calc.meal.totalExp() | currency }}
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+
+    <div class="row center">
+        <div class="col-md-6">
+          <div class="header">
+            <p class="title">Total</p>
+          </div>
+          <div class="charges">
+            <div class="form-group clearfix">
+              <div class="col-sm-4">
+                <label for="contProfitMonthly">Contribution Profit (Monthly):</label>
+              </div>
+              <div class="col-sm-8">
+                {{ calc.meal.contProfitMonthly() }}
+              </div>
+            </div>
+            <div class="form-group clearfix">
+              <div class="col-sm-4">
+                <label for="contProfitTotal">Contribution Profit (Monthly):</label>
+              </div>
+              <div class="col-sm-8">
+                {{ calc.meal.contProfitTotal() | currency }}
+              </div>
+            </div>
+
+            <div class="form-group clearfix">
+              <div class="col-sm-4">
+                <label for="margin">Contribution Margin:</label>
+              </div>
+              <div class="col-sm-8">
+                {{ calc.meal.margin() | currency }}
+              </div>
+            </div>
+            <div class="form-group clearfix">
+              <div class="col-sm-4">
+                <label for="roiMonths">Capital ROI (Months):</label>
+              </div>
+              <div class="col-sm-8">
+                {{ calc.meal.roiMonths() | currency }}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div> <!--end of controller-->
   </div>
 
           <!-- Predicted payment: {{funding.monthlyaftertax | currency: "$ "}} -->
