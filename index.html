@@ -3,24 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title>ROI Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body ng-controller="TextController">
-    <h2>{{text}}</h2>
-    <form ng-controller="StartupController" class="" action="index.html" method="post">
+    <div class="container">
+    <div ng-controller="CalcCtrl as calc">
+      <h1 class="text-center">ROI Calculator</h1>
+      <!-- Revenue start -->
+      <div class="row text-center form-group">
+        <div class="col-md-12">
+          <label for="itemName">Item Name</label>
+          <input type="text" name="" value="">
 
-        Today (Actual): <input ng-change="computeDaily()" ng-model="funding.dailycount"type="text" name="" value="">
-        <br>
-        <br>
-        This Month: <input ng-change="computeMonthly()" ng-model="funding.monthlycount"type="text" name="" value="">
-        <p>Based on today:<br>
-          Predicted payment: {{funding.dailyaftertax | currency: "$ "}}</p>
-        <p>Based on month:<br>
-          Predicted payment: {{funding.monthlyaftertax | currency: "$ "}}
-        </p>
-    </form>
+          <label for="oneTime">One Time</label>
+          <input type="text" name="" value="">
+
+          <label for="monthly">Monthly</label>
+          <input type="text" name="" value="">
+
+          <button type="button" name="button" class="btn btn-primary">Add Revenue Item</button>
+        </div>
+      </div> <!-- Revenue end -->
+
+      <!-- Expense start -->
+      <div class="row text-center form-group">
+        <div class="col-md-12">
+          <label for="itemName">Item Name</label>
+          <input type="text" name="" value="">
+
+          <label for="oneTime">One Time</label>
+          <input type="text" name="" value="">
+
+          <label for="monthly">Monthly</label>
+          <input type="text" name="" value="">
+
+          <button type="button" name="button" class="btn btn-primary">Add Expense Item</button>
+        </div>
+      </div> <!-- Expense end -->
+    </div>
+  </div>
+
+          <!-- Predicted payment: {{funding.monthlyaftertax | currency: "$ "}} -->
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>

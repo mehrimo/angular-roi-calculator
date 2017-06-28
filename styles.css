@@ -1,3 +1,47 @@
 h2 {
   color: purple;
 }
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+h1 {
+  margin-bottom: 25px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  outline: 0;
+  border: 2px solid #333;
+}
+
+.title {
+  background: #ddd;
+  padding: 15px;
+  font-size: 16px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-bottom: 0;
+}
+
+.calculator,
+.button-actions,
+.charges {
+  padding: 15px;
+}
+
+.calculator,
+.charges {
+  border: 1px solid #ddd;
+  display: inline-block;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.button-actions {
+  float: right;
+}
