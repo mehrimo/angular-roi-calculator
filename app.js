@@ -1,5 +1,5 @@
 
-
+"use strict";
 
 // var CalcCtrl;
 
@@ -9,7 +9,7 @@
 angular.module("calcApp", [])
 .filter('sumOfValue', function() {
     return function(data, key) {
-      debugger;
+      // debugger;
       if (angular.isUndefined(data) || angular.isUndefined(key))
         return 0;
       var sum = 0;
@@ -23,12 +23,12 @@ angular.module("calcApp", [])
   $scope.items = [
     {
       text: "learn angular",
-      oneTime: 25,
+      once: 25,
       monthly: 100,
       done: false
     }, {
       text: "build an angular app",
-      oneTime: 35,
+      once: 35,
       monthly: 100,
       done: false
     }
@@ -37,7 +37,7 @@ angular.module("calcApp", [])
   $scope.addItem = function() {
     $scope.items.push({
       text: $scope.itemText,
-      oneTime: $scope.itemOne,
+      once: $scope.itemOne,
       monthly: $scope.itemMonthly,
       done: false
     });
@@ -58,7 +58,7 @@ angular.module("calcApp", [])
     return count;
   };
 
-  $scope.archive = function() {
+  $scope.delete = function() {
     var oldItems;
     oldItems = $scope.items;
     $scope.items = [];
@@ -89,13 +89,13 @@ angular.module("calcApp", [])
 //     });
 
 //     return total;
-};
+});
 
 
 
 
 
-};
+
 
 //take all item.oneTime and add together
 
