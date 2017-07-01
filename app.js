@@ -1,6 +1,5 @@
-
 "use strict";
-
+//JSBIN https://jsbin.com/yeloxam/10/edit?html,js,output
 angular.module("calcApp", [])
 
 .filter('sumOfValue', function() {
@@ -84,4 +83,4 @@ angular.module("calcApp", [])
 
 
 
-});  
+});
