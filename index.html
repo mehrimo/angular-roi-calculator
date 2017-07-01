@@ -30,8 +30,8 @@
       <div>
         <h2>Revenue</h2>
         <div>
-          <span >One-Time: {{items | sumOfValue:'once'}}</span>
-          <p>Monthly: {{item.revTotalMonth | currency}}</p>
+          <span >One-Time: {{items | sumOfValue:'once' | currency}}</span>
+          <p>Monthly: {{items | sumOfValue:'monthly' | currency}}</p>
           <p>Total: {{item.revTotal | currency}}</p>
         </div>
 

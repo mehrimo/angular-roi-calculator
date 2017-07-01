@@ -20,6 +20,7 @@ angular.module("calcApp", [])
       return sum;
     }
   }).controller("CalcCtrl", function($scope) {
+  // $scope.items = [];
   $scope.items = [
     {
       text: "learn angular",
@@ -33,6 +34,9 @@ angular.module("calcApp", [])
       done: false
     }
   ];
+
+
+
 
   $scope.addItem = function() {
     $scope.items.push({
@@ -70,6 +74,13 @@ angular.module("calcApp", [])
     });
   };
 
+
+
+
+
+
+});
+
 //    $scope.revTotalOne = function() {
 //     var total = 0;
 
@@ -89,7 +100,7 @@ angular.module("calcApp", [])
 //     });
 
 //     return total;
-});
+
 
 
 
