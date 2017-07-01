@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <h2>Todo</h2>
+    <h2>Revenue Items</h2>
     <div id="app-container" ng-controller="CalcCtrl">
         <span>{{remaining()}} of {{items.length}} remaining</span>
         [ <a href="" ng-click="delete()">Delete</a> ]
@@ -28,11 +28,11 @@
       </form>
 
       <div>
-        <h2>Revenue</h2>
+        <h2>Revenue Total</h2>
         <div>
-          <span >One-Time: {{items | sumOfValue:'once' | currency}}</span>
-          <p>Monthly: {{items | sumOfValue:'monthly' | currency}}</p>
-          <p>Total: {{item.revTotal | currency}}</p>
+          <span ng-model="revTotalOne">One-Time: {{items | sumOfValue:'once' | currency}}</span><br>
+          <span ng-model="revTotalMonthly">Monthly: {{items | sumOfValue:'monthly' | currency}}</span><br>
+          <span>Total: {{(items | sumOfValue:'once') + (items | sumOfValue:'monthly') | currency  }}</span>
         </div>
 
       </div>

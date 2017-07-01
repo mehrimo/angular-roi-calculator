@@ -1,12 +1,8 @@
 
 "use strict";
 
-// var CalcCtrl;
-
-// CalcCtrl = function($scope) {
-
-
 angular.module("calcApp", [])
+
 .filter('sumOfValue', function() {
     return function(data, key) {
       // debugger;
@@ -18,24 +14,24 @@ angular.module("calcApp", [])
         sum = sum + parseInt(v[key]);
       });
       return sum;
+
     }
+
   }).controller("CalcCtrl", function($scope) {
   // $scope.items = [];
   $scope.items = [
     {
-      text: "learn angular",
+      text: "Event tickets",
       once: 25,
       monthly: 100,
       done: false
     }, {
-      text: "build an angular app",
+      text: "Whitepaper downloads",
       once: 35,
       monthly: 100,
       done: false
     }
   ];
-
-
 
 
   $scope.addItem = function() {
@@ -74,43 +70,18 @@ angular.module("calcApp", [])
     });
   };
 
+  $scope.revenueTotal = function() {
+  var total;
+  total = 0;
 
+    total = (2+3);
 
-
-
-
-});
-
-//    $scope.revTotalOne = function() {
-//     var total = 0;
-
-//     angular.forEach($scope.items, function(item) {
-//       return item.oneTime + item.oneTime;
-//     });
-
-//     return total;
-//   };
-
-
-//    $scope.revTotalOne = function() {
-//     var total = 0;
-
-//     angular.forEach($scope.items, function(item) {
-//       return item.oneTime + item.oneTime;
-//     });
-
-//     return total;
+  return total;
+};
 
 
 
 
 
 
-
-
-//take all item.oneTime and add together
-
-// var rev.Total = 0
-//rev.Total = revTotalOne + revTotalMonth
-
-// angular.module("calcApp", []).controller("CalcCtrl", CalcCtrl);
+});  
