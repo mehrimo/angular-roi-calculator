@@ -13,15 +13,11 @@ angular.module("calcApp", [])
       angular.forEach(data, function(v, k) {
         sum = sum + parseInt(v[key]);
       });
-
       return sum;
-
     };
 
-
-
   }).controller("CalcCtrl", function($scope) {
-  // $scope.items = [];
+  // Items
   $scope.items = [
     {
       text: "Event tickets",
@@ -36,8 +32,6 @@ angular.module("calcApp", [])
     }
   ];
 
-
-
   $scope.addItem = function() {
     $scope.items.push({
       text: $scope.itemText,
@@ -45,16 +39,13 @@ angular.module("calcApp", [])
       monthly: $scope.itemMonthly,
       done: false
     });
-
     $scope.itemText = "";
-
     return $scope.itemText;
   };
 
   $scope.remaining = function() {
     var count;
     count = 0;
-
     angular.forEach($scope.items, function(item) {
       return count += item.done ? 0 : 1;
     });
@@ -66,10 +57,56 @@ angular.module("calcApp", [])
     var oldItems;
     oldItems = $scope.items;
     $scope.items = [];
-
     angular.forEach(oldItems, function(item) {
       if (!item.done) {
         return $scope.items.push(item);
+      }
+    });
+  };
+
+  // Expenses
+  $scope.expenses = [
+    {
+      text: "Event space",
+      once: 500,
+      monthly: 100,
+      done: false
+    }, {
+      text: "Marketing collateral",
+      once: 50,
+      monthly: 200,
+      done: false
+    }
+  ];
+
+  $scope.addExpense = function() {
+    $scope.expenses.push({
+      text: $scope.expenseText,
+      once: $scope.expenseOne,
+      monthly: $scope.expenseMonthly,
+      done: false
+    });
+    $scope.expenseText = "";
+    return $scope.expenseText;
+  };
+
+  $scope.remaining = function() {
+    var count;
+    count = 0;
+    angular.forEach($scope.expenses, function(expense) {
+      return count += expense.done ? 0 : 1;
+    });
+
+    return count;
+  };
+
+  $scope.delete = function() {
+    var oldExpenses;
+    oldExpenses = $scope.expenses;
+    $scope.expenses = [];
+    angular.forEach(oldExpenses, function(expense) {
+      if (!expense.done) {
+        return $scope.expenses.push(expense);
       }
     });
   };
