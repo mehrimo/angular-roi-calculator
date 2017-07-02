@@ -15,8 +15,15 @@ angular.module("calcApp", [])
       });
       return sum;
     };
+})
 
-  }).controller("CalcCtrl", function($scope) {
+.filter('percentage', ['$filter', function ($filter) {
+      return function (input, decimals) {
+        return $filter('number')(input * 0.1, decimals) + '%';
+      };
+    }])
+
+  .controller("CalcCtrl", function($scope) {
   // Items
   $scope.items = [
     {
