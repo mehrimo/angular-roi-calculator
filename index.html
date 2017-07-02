@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="calcApp">
 <head>
-  <title>Zayo</title>
+  <title>ROI</title>
 
 </head>
 
@@ -32,7 +32,9 @@
         <div>
           <span ng-model="revTotalOne">One-Time: {{items | sumOfValue:'once' | currency}}</span><br>
           <span ng-model="revTotalMonthly">Monthly: {{items | sumOfValue:'monthly' | currency}}</span><br>
-          <span>Total: {{(items | sumOfValue:'once') + (items | sumOfValue:'monthly') | currency  }}</span>
+          <!-- 1st solution works -->
+          <!-- <span>Total: {{(items | sumOfValue:'once') + (items | sumOfValue:'monthly') | currency  }}</span> -->
+          <span>Total: {{sumPrice()}}</span>
         </div>
 
       </div>

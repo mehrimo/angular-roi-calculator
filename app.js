@@ -14,7 +14,7 @@ angular.module("calcApp", [])
       });
       return sum;
 
-    }
+    };
 
   }).controller("CalcCtrl", function($scope) {
   // $scope.items = [];
@@ -69,15 +69,66 @@ angular.module("calcApp", [])
     });
   };
 
-  $scope.revenueTotal = function() {
-  var total;
-  total = 0;
+//   $scope.revenueTotal = function() {
+//   var total;
+//   total = 0;
+//
+//     total = (2+3);
+//
+//   return total;
+// };
+//
+// $scope.revTotalOne = function () {
+//   var total;
+//   total = 0;
+//
+//     total = (2+3);
+//
+//   return total;
+// };
+//
+// $scope.revTotalMonthly = function () {
+//   var total;
+//   total = 0;
+//
+//     total = (2+3);
+//
+//   return total;
+// };
 
-    total = (2+3);
+// $scope.sumPrice = function() {
+// var revSum2 = 1;
+// var revSum2 = parseInt($scope.revTotalOne) + parseInt($scope.revTotalMonthly);
+// return revSum2;
+// $scope.revSum1 = revSum2;
+  // };
 
-  return total;
-};
 
+
+
+
+// $scope.sumPrice = function() {
+//   var total;
+//   total = 1;
+//
+//   angular.forEach($scope.items.once, function(item) {
+//     return total += items.once;
+//
+//   });
+//
+//   return total;
+// };
+
+
+// $scope.sumPrice = function(products) {
+//   var total = 0;
+//   angular.forEach(products,function(value,index){
+//     total += parseFloat(value.price);
+//   });
+//   return total.toFixed(2);
+// };
+
+console.log("revsum");
 
 
 
