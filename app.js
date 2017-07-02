@@ -21,13 +21,18 @@ angular.module("calcApp", [])
   $scope.items = [
     {
       text: "Event tickets",
-      once: 25,
-      monthly: 100,
+      once: 100,
+      monthly: 50,
       done: false
     }, {
       text: "Whitepaper downloads",
-      once: 35,
-      monthly: 100,
+      once: 50,
+      monthly: 25,
+      done: false
+    }, {
+      text: "Online Sales",
+      once: 25,
+      monthly: 85,
       done: false
     }
   ];
@@ -69,12 +74,12 @@ angular.module("calcApp", [])
     {
       text: "Event space",
       once: 500,
-      monthly: 100,
+      monthly: 20,
       done: false
     }, {
       text: "Marketing collateral",
-      once: 50,
-      monthly: 200,
+      once: 200,
+      monthly: 40,
       done: false
     }
   ];
