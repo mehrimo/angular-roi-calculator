@@ -6,8 +6,10 @@
 </head>
 
 <body>
-    <h2>Revenue Items</h2>
     <div id="app-container" ng-controller="CalcCtrl">
+
+      <!-- List start -->
+      <h2>Revenue Items</h2>
         <span>{{remaining()}} of {{items.length}} remaining</span>
         [ <a href="" ng-click="delete()">Delete</a> ]
         <ul class="unstyled">
@@ -18,28 +20,54 @@
             </li>
         </ul>
         <form ng-submit="addItem()">
-            <input type="text" ng-model="itemText" size="30"
+          <input type="text" ng-model="itemText" size="30"
                 placeholder="add new item here">
-           <input type="text" ng-model="itemOne" size="30"
+          <input type="text" ng-model="itemOne" size="30"
                 placeholder="add one-time amount">
-           <input type="text" ng-model="itemMonthly" size="30"
+          <input type="text" ng-model="itemMonthly" size="30"
                 placeholder="add monthly amount">
-            <input class="btn-primary" type="submit" value="Add Revenue Item">
-      </form>
-
+          <input class="btn-primary" type="submit" value="Add Revenue Item">
+        </form>
+      <h2>Expenses</h2>
+        <span>{{remaining()}} of {{items.length}} remaining</span>
+        [ <a href="" ng-click="delete()">Delete</a> ]
+        <ul class="unstyled">
+            <li ng-repeat="expense in expenses">
+                <input type="checkbox" ng-model="expense.done">
+                <span class="done-{{expense.done}}">{{expense.text}}</span>,
+                <span class="done-{{expense.done}}">{{expense.once | currency}}</span>,                      <span class="done-{{expense.done}}">{{expense.monthly | currency}}</span>
+            </li>
+        </ul>
+        <form ng-submit="addExpense()">
+          <input type="text" ng-model="expenseText" size="30"
+                placeholder="add new expense here">
+          <input type="text" ng-model="expenseOne" size="30"
+                placeholder="add one-time amount">
+          <input type="text" ng-model="expenseMonthly" size="30"
+                placeholder="add monthly amount">
+          <input class="btn-primary" type="submit" value="Add Expense Item">
+        </form>
+      <!-- Revenue and Expense Totals start -->
       <div>
         <h2>Revenue Total</h2>
         <div>
           <span ng-model="revTotalOne">One-Time: {{items | sumOfValue:'once' | currency}}</span><br>
           <span ng-model="revTotalMonthly">Monthly: {{items | sumOfValue:'monthly' | currency}}</span><br>
           <!-- 1st solution works -->
-          <!-- <span>Total: {{(items | sumOfValue:'once') + (items | sumOfValue:'monthly') | currency  }}</span> -->
-          <span>Total: {{sumPrice()}}</span>
+          <span>Total: {{(items | sumOfValue:'once') + (items | sumOfValue:'monthly') | currency  }}</span>
         </div>
-
+      </div>
+      <div>
+        <h2>Expense Total</h2>
+        <div>
+          <span ng-model="revTotalOne">One-Time: {{expenses | sumOfValue:'once' | currency}}</span><br>
+          <span ng-model="revTotalMonthly">Monthly: {{expenses | sumOfValue:'monthly' | currency}}</span><br>
+          <!-- 1st solution works -->
+          <span>Total: {{(expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') | currency  }}</span>
+        </div>
       </div>
 
-    </div>
+    </div> <!-- CalcCtrl controller end -->
 </body>
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>

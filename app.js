@@ -1,3 +1,4 @@
+(function() {
 "use strict";
 //JSBIN https://jsbin.com/yeloxam/10/edit?html,js,output
 angular.module("calcApp", [])
@@ -12,9 +13,12 @@ angular.module("calcApp", [])
       angular.forEach(data, function(v, k) {
         sum = sum + parseInt(v[key]);
       });
+
       return sum;
 
     };
+
+
 
   }).controller("CalcCtrl", function($scope) {
   // $scope.items = [];
@@ -31,6 +35,7 @@ angular.module("calcApp", [])
       done: false
     }
   ];
+
 
 
   $scope.addItem = function() {
@@ -104,8 +109,7 @@ angular.module("calcApp", [])
   // };
 
 
-
-
+// $scope.sumPrice = function() {return $scope.revTotalOne + $scope.revTotalMonthly;};
 
 // $scope.sumPrice = function() {
 //   var total;
@@ -119,6 +123,7 @@ angular.module("calcApp", [])
 //   return total;
 // };
 
+    // $scope.sumPrice = function(price){return price/$scope.currRate * $scope.initialAmt;}
 
 // $scope.sumPrice = function(products) {
 //   var total = 0;
@@ -135,3 +140,5 @@ console.log("revsum");
 
 
 });
+
+})();
