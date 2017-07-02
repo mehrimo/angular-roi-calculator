@@ -64,8 +64,8 @@
     <div>
       <h2>Expense Total</h2>
         <div>
-          <span ng-model="revTotalOne">One-Time: {{expenses | sumOfValue:'once' | currency}}</span><br>
-          <span ng-model="revTotalMonthly">Monthly: {{expenses | sumOfValue:'monthly' | currency}}</span><br>
+          <span>One-Time: {{expenses | sumOfValue:'once' | currency}}</span><br>
+          <span>Monthly: {{expenses | sumOfValue:'monthly' | currency}}</span><br>
           <!-- 1st solution works -->
           <span>Total: {{(expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12 | currency  }}</span>
         </div>
@@ -77,7 +77,8 @@
       <div>
         <span>Contribution Profit Monthly: {{(items | sumOfValue:'monthly') - (expenses | sumOfValue:'monthly') | currency}}</span><br>
 
-        <span>Contribution Profit Total: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly')) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly')) | currency }}</span><br>
+                <!-- <span>Contribution Profit Total: {{(items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12 - (expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12) | currency }}</span><br> -->
+        <span>Contribution Profit Total: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12)  | currency }}</span><br>
 
        <span>Contribution Margin: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly')) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly')) / (items | sumOfValue:'once') + (items | sumOfValue:'monthly')| number : fractionsize}}</span><br>
 
