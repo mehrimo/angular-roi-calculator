@@ -19,7 +19,7 @@ angular.module("calcApp", [])
 
 .filter('percentage', ['$filter', function ($filter) {
       return function (input, decimals) {
-        return $filter('number')(input * 0.1, decimals) + '%';
+        return $filter('number')(input * 100, decimals) + '%';
       };
     }])
 
@@ -65,7 +65,7 @@ angular.module("calcApp", [])
     return count;
   };
 
-  $scope.delete = function() {
+  $scope.deleteRv = function() {
     var oldItems;
     oldItems = $scope.items;
     $scope.items = [];
@@ -112,7 +112,7 @@ angular.module("calcApp", [])
     return count;
   };
 
-  $scope.delete = function() {
+  $scope.deleteExp = function() {
     var oldExpenses;
     oldExpenses = $scope.expenses;
     $scope.expenses = [];
@@ -182,11 +182,7 @@ angular.module("calcApp", [])
 //   return total.toFixed(2);
 // };
 
-console.log("revsum");
-
-
-
-
+console.log("hello");
 
 });
 

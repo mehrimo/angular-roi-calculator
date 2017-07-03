@@ -2,7 +2,9 @@
 <html ng-app="calcApp">
 <head>
   <title>ROI</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -11,8 +13,7 @@
       <!-- List inputs-->
     <div>
       <h2>Revenue Items</h2>
-        <span>{{remaining()}} of {{items.length}} remaining</span>
-        [ <a href="" ng-click="delete()">Delete</a> ]
+        [ <a href="" ng-click="deleteRv()">Delete Item</a> ]
         <ul class="unstyled">
             <li ng-repeat="item in items">
                 <input type="checkbox" ng-model="item.done">
@@ -32,8 +33,7 @@
     </div>
     <div>
       <h2>Expenses</h2>
-        <span>{{remaining()}} of {{items.length}} remaining</span>
-        [ <a href="" ng-click="delete()">Delete</a> ]
+        [ <a href="" ng-click="deleteExp()">Delete Expense</a> ]
         <ul class="unstyled">
             <li ng-repeat="expense in expenses">
                 <input type="checkbox" ng-model="expense.done">
@@ -80,7 +80,7 @@
 
         <span>Contribution Profit Total: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12)  | currency }}</span><br>
 
-       <span>Contribution Margin: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly')) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly')) / ((items | sumOfValue:'once') + (items | sumOfValue:'monthly')) | percentage:0 }} </span><br>
+       <span>Contribution Margin: {{(((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12)) / (((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12)) | percentage: 1}} </span><br>
 
        <!-- <span>Contribution Margin: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly')) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly')) / (items | sumOfValue:'once') + (items | sumOfValue:'monthly')| number: 1}}</span><br> -->
 
