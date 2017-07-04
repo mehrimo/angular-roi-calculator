@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: #E5FCF5;
 }
 
 
@@ -13,6 +13,8 @@ body {
   letter-spacing: 0.0425em;
 }
 
+
+
 h1 {
   margin-bottom: 25px;
 }
@@ -24,9 +26,10 @@ h1 {
 }
 
 .title {
-  background: #A7C6DA;
+  background: #210124;
   padding: 15px;
   font-size: 18px;
+  color: white;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   margin-bottom: 0;
@@ -37,7 +40,7 @@ h1 {
 .list,
 .results {
   padding: 15px;
-  background-color: white;
+  background-color: #FEFFFE;
   margin-bottom: 15px;
 }
 
@@ -49,7 +52,7 @@ h1 {
 
 .list,
 .results {
-  border: 1px solid #ddd;
+  border: 1px solid #750D37;
   display: inline-block;
   width: 100%;
 }
@@ -61,3 +64,30 @@ h1 {
 .button-actions {
   float: right;
 }
+
+/* Custom button style */
+
+.btn {
+    /*padding: 14px 24px;*/
+    padding: 5px 10px;
+
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary, .btn-primary:focus {
+    background: #f44336;
+    color: #ffffff;
+}
+.btn-primary:hover,  .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #a00e03;
+}
+/*.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}*/

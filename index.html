@@ -18,12 +18,12 @@
             <p class="title">Enter Revenue Details</p>
           </div>
           <div class="list">
-            [ <a href="" ng-click="deleteRv()">Delete Item</a> ]
+            [ <a href="" ng-click="deleteRv()">Delete Item</a> <i class="fa fa-check-square" aria-hidden="true"></i> ]
             <ul class="unstyled">
                 <li ng-repeat="item in items">
                     <input type="checkbox" ng-model="item.done">
                     <span class="done-{{item.done}}">{{item.text}}</span>,
-                    <span class="done-{{item.done}}">{{item.once | currency}}</span>,                      <span class="done-{{item.done}}">{{item.monthly | currency}}</span>
+                    <span class="done-{{item.done}}">{{item.once | currency}}</span>,                      <span class="done-{{item.done}}">{{item.monthly | currency}}</span> 
                 </li>
             </ul>
             <form class="form-group clearfix" ng-submit="addItem()">
@@ -44,7 +44,7 @@
             <p class="title">Enter Expense Details</p>
           </div>
           <div class="list">
-          [ <a href="" ng-click="deleteExp()">Delete Expense</a> ]
+          [ <a href="" ng-click="deleteExp()">Delete Expense</a> <i class="fa fa-check-square" aria-hidden="true"></i>]
           <ul class="unstyled">
               <li ng-repeat="expense in expenses">
                   <input type="checkbox" ng-model="expense.done">
@@ -70,7 +70,7 @@
         <div>
         <div class="col-md-4">
           <div class="header">
-            <p class="title">Revenue Total</p>
+            <p class="title">Revenue Total <i class="fa fa-usd" aria-hidden="true"></i></p>
           </div>
             <!-- <div ng-init="{{RvTotalOne = (items | sumOfValue:'once' | currency)}}">
             Test: {{RvTotalOne}}
@@ -84,7 +84,7 @@
         </div>
         <div class="col-md-4">
           <div class="header">
-            <p class="title">Expense Total</p>
+            <p class="title">Expense Total <i class="fa fa-usd" aria-hidden="true"></i></p>
           </div>
             <div class="results">
               <span>One-Time: {{expenses | sumOfValue:'once' | currency}}</span><br>
