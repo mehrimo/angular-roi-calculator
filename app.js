@@ -1,11 +1,11 @@
 (function() {
-"use strict";
 //JSBIN https://jsbin.com/yeloxam/10/edit?html,js,output
+
 angular.module("calcApp", [])
 
+// Sum one-time and monthly values
 .filter('sumOfValue', function() {
     return function(data, key) {
-      // debugger;
       if (angular.isUndefined(data) || angular.isUndefined(key))
         return 0;
       var sum = 0;
@@ -16,7 +16,7 @@ angular.module("calcApp", [])
       return sum;
     };
 })
-
+// Calculate percentage
 .filter('percentage', ['$filter', function ($filter) {
       return function (input, decimals) {
         return $filter('number')(input * 100, decimals) + '%';
@@ -24,7 +24,7 @@ angular.module("calcApp", [])
     }])
 
   .controller("CalcCtrl", function($scope) {
-  // Items
+  // Revenue items
   $scope.items = [
     {
       text: "Event tickets",
@@ -50,7 +50,6 @@ angular.module("calcApp", [])
     $scope.itemText = "";
     $scope.itemOne = "";
     $scope.itemMonthly = "";
-    // return $scope.itemText;
   };
 
   $scope.deleteRv = function() {
@@ -64,7 +63,7 @@ angular.module("calcApp", [])
     });
   };
 
-  // Expenses
+  // Expenses items
   $scope.expenses = [
     {
       text: "Event space",
@@ -90,17 +89,6 @@ angular.module("calcApp", [])
     $scope.expenseText = "";
     $scope.expenseOne = "";
     $scope.expenseMonthly = "";
-    // return $scope.expenseText;
-  };
-
-  $scope.remaining = function() {
-    var count;
-    count = 0;
-    angular.forEach($scope.expenses, function(expense) {
-      return count += expense.done ? 0 : 1;
-    });
-
-    return count;
   };
 
   $scope.deleteExp = function() {
@@ -114,69 +102,6 @@ angular.module("calcApp", [])
     });
   };
 
-
-
-//   $scope.revenueTotal = function() {
-//   var total;
-//   total = 0;
-//
-//     total = (2+3);
-//
-//   return total;
-// };
-//
-// $scope.revTotalOne = function () {
-//   var total;
-//   total = 0;
-//
-//     total = (2+3);
-//
-//   return total;
-// };
-//
-// $scope.revTotalMonthly = function () {
-//   var total;
-//   total = 0;
-//
-//     total = (2+3);
-//
-//   return total;
-// };
-
-// $scope.sumPrice = function() {
-// var revSum2 = 1;
-// var revSum2 = parseInt($scope.revTotalOne) + parseInt($scope.revTotalMonthly);
-// return revSum2;
-// $scope.revSum1 = revSum2;
-  // };
-
-
-// $scope.sumPrice = function() {return $scope.revTotalOne + $scope.revTotalMonthly;};
-
-// $scope.sumPrice = function() {
-//   var total;
-//   total = 1;
-//
-//   angular.forEach($scope.items.once, function(item) {
-//     return total += items.once;
-//
-//   });
-//
-//   return total;
-// };
-
-    // $scope.sumPrice = function(price){return price/$scope.currRate * $scope.initialAmt;}
-
-// $scope.sumPrice = function(products) {
-//   var total = 0;
-//   angular.forEach(products,function(value,index){
-//     total += parseFloat(value.price);
-//   });
-//   return total.toFixed(2);
-// };
-
-console.log("hello");
-
-});
+}); // Controller end
 
 })();

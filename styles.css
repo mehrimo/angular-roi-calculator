@@ -1,6 +1,4 @@
-
 .container {
-  /*width: 80%;*/
   margin: auto;
   overflow: hidden;
 }
@@ -12,7 +10,6 @@ body {
   letter-spacing: 0.0425em;
   line-height: 1.5;
   background-color: #E5FCF5;
-
 }
 
 h2 {
@@ -21,6 +18,12 @@ h2 {
 
 h1 {
   margin-bottom: 25px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .form-control:focus {
@@ -64,6 +67,7 @@ h1 {
 
 .form-group {
   margin-bottom: 25px;
+  margin-top: 10px;
 }
 
 /* Custom button style */

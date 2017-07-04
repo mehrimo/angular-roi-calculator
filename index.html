@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="calcApp">
 <head>
-  <title>ROI</title>
+  <title>ROI Calculator</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <script src="https://use.fontawesome.com/d36af44873.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<div  class="container" ng-controller="CalcCtrl">
+  <div  class="container" ng-controller="CalcCtrl">
     <h1 class="text-center">ROI Calculator <i class="fa fa-calculator" aria-hidden="true"></i></h1>
     <!-- Revenue start -->
       <div class="row">
@@ -21,9 +21,9 @@
               [ <a href="" ng-click="deleteRv()">Delete Item</a> <i class="fa fa-check-square" aria-hidden="true"></i> ]
               <ul class="unstyled">
                   <li ng-repeat="item in items">
-                      <input type="checkbox" ng-model="item.done">
                       <span class="done-{{item.done}}">{{item.text}}</span>,
-                      <span class="done-{{item.done}}">{{item.once | currency}}</span>,                      <span class="done-{{item.done}}">{{item.monthly | currency}}</span>
+                      <span class="done-{{item.done}}">{{item.once | currency}}</span>,                      <span class="done-{{item.done}}">{{item.monthly | currency}}</span>                      <input type="checkbox" ng-model="item.done">
+
                   </li>
               </ul>
               <form class="form-group clearfix" ng-submit="addItem()">
@@ -58,13 +58,13 @@
               [ <a href="" ng-click="deleteExp()">Delete Expense</a> <i class="fa fa-check-square" aria-hidden="true"></i> ]
               <ul class="unstyled">
                   <li ng-repeat="expense in expenses">
-                      <input type="checkbox" ng-model="expense.done">
                       <span class="done-{{expense.done}}">{{expense.text}}</span>,
                       <span class="done-{{expense.done}}">{{expense.once | currency}}</span>,                      <span class="done-{{expense.done}}">{{expense.monthly | currency}}</span>
+                      <input type="checkbox" ng-model="expense.done">
                   </li>
               </ul>
               <form class="form-group clearfix" ng-submit="addExpense()">
-                <input form-group type="text" ng-model="expenseText" size="30"
+                <input type="text" ng-model="expenseText" size="30"
                       placeholder="add new expense here" required>
                 <input type="number" ng-model="expenseOne" size="30"
                       placeholder="add one-time amount" required>
@@ -104,8 +104,9 @@
   </div> <!-- CalcCtrl controller end -->
 </body>
 
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="app.js">
 </script>
 </html>
