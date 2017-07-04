@@ -33,13 +33,8 @@ angular.module("calcApp", [])
       done: false
     }, {
       text: "Whitepaper downloads",
-      once: 50,
-      monthly: 25,
-      done: false
-    }, {
-      text: "Online Sales",
-      once: 25,
-      monthly: 85,
+      once: 500,
+      monthly: 100,
       done: false
     }
   ];
@@ -73,13 +68,13 @@ angular.module("calcApp", [])
   $scope.expenses = [
     {
       text: "Event space",
-      once: 500,
+      once: 400,
       monthly: 20,
       done: false
     }, {
-      text: "Marketing collateral",
-      once: 200,
-      monthly: 40,
+      text: "Travel",
+      once: 350,
+      monthly: 10,
       done: false
     }
   ];

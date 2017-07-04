@@ -1,19 +1,23 @@
-body {
-    background-color: #E5FCF5;
-}
 
-
-h2 {
-  color: #484A4C;
+.container {
+  /*width: 80%;*/
+  margin: auto;
+  overflow: hidden;
 }
 
 body {
   font-family: 'Lato', sans-serif;
+  font-size: 	1.5em;
   color: #384554;
   letter-spacing: 0.0425em;
+  line-height: 1.5;
+  background-color: #E5FCF5;
+
 }
 
-
+h2 {
+  color: #484A4C;
+}
 
 h1 {
   margin-bottom: 25px;
@@ -34,7 +38,7 @@ h1 {
   border-top-right-radius: 3px;
   margin-bottom: 0;
   font-weight: 400;
-  letter-spacing: 0.0625em;
+  letter-spacing: 0.0725em;
 }
 
 .list,
@@ -44,10 +48,11 @@ h1 {
   margin-bottom: 15px;
 }
 
-.details {
-  /*padding: 15px;*/
-  /*background-color: white;
-  margin-bottom: 15px;*/
+.right {
+  float: right;
+}
+.left {
+  float: left;
 }
 
 .list,
@@ -61,16 +66,10 @@ h1 {
   margin-bottom: 25px;
 }
 
-.button-actions {
-  float: right;
-}
-
 /* Custom button style */
 
 .btn {
-    /*padding: 14px 24px;*/
     padding: 5px 10px;
-
     border: 0 none;
     font-weight: 700;
     letter-spacing: 1px;
@@ -87,7 +86,32 @@ h1 {
 .btn-primary:hover,  .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     background: #a00e03;
 }
-/*.btn-primary:active, .btn-primary.active {
-    background: #007299;
-    box-shadow: none;
-}*/
+
+.button-actions {
+  float: right;
+}
+
+/* Media Queries */
+
+@media(max-width: 768px){
+
+.list ul li {
+  float: none;
+  display: block;
+  margin: 0;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.list ul {
+  padding: 0;
+}
+
+.list input{
+  float: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.right {
+  float: none;
+}
