@@ -44,10 +44,6 @@ angular.module("calcApp", [])
     }
   ];
 
-//   $scope.test: function() {
-//   return this.subTotal() + this.tip();
-// }
-
   $scope.addItem = function() {
     $scope.items.push({
       text: $scope.itemText,

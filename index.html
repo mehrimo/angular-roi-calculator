@@ -8,96 +8,91 @@
 </head>
 
 <body>
-    <div id="app-container" ng-controller="CalcCtrl">
-
+    <div  class="container" ng-controller="CalcCtrl">
+      <h1 class="text-center">ROI Calculator</h1>
       <!-- List inputs-->
-    <div>
-      <h2>Revenue Items</h2>
-        [ <a href="" ng-click="deleteRv()">Delete Item</a> ]
-        <ul class="unstyled">
-            <li ng-repeat="item in items">
-                <input type="checkbox" ng-model="item.done">
-                <span class="done-{{item.done}}">{{item.text}}</span>,
-                <span class="done-{{item.done}}">{{item.once | currency}}</span>,                      <span class="done-{{item.done}}">{{item.monthly | currency}}</span>
-            </li>
-        </ul>
-        <form ng-submit="addItem()">
-          <input type="text" ng-model="itemText" size="30"
-                placeholder="add new item here">
-          <input type="text" ng-model="itemOne" size="30"
-                placeholder="add one-time amount">
-          <input type="text" ng-model="itemMonthly" size="30"
-                placeholder="add monthly amount">
-          <input class="btn-primary" type="submit" value="Add Revenue Item">
-        </form>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Revenue Items</h2>
+            [ <a href="" ng-click="deleteRv()">Delete Item</a> ]
+            <ul class="unstyled">
+                <li ng-repeat="item in items">
+                    <input type="checkbox" ng-model="item.done">
+                    <span class="done-{{item.done}}">{{item.text}}</span>,
+                    <span class="done-{{item.done}}">{{item.once | currency}}</span>,                      <span class="done-{{item.done}}">{{item.monthly | currency}}</span>
+                </li>
+            </ul>
+            <form ng-submit="addItem()">
+              <input type="text" ng-model="itemText" size="30"
+                    placeholder="add new item here">
+              <input type="text" ng-model="itemOne" size="30"
+                    placeholder="add one-time amount">
+              <input type="text" ng-model="itemMonthly" size="30"
+                    placeholder="add monthly amount">
+              <input class="btn-primary" type="submit" value="Add Revenue Item">
+            </form>
+        </div>
     </div>
-    <div>
-      <h2>Expenses</h2>
-        [ <a href="" ng-click="deleteExp()">Delete Expense</a> ]
-        <ul class="unstyled">
-            <li ng-repeat="expense in expenses">
-                <input type="checkbox" ng-model="expense.done">
-                <span class="done-{{expense.done}}">{{expense.text}}</span>,
-                <span class="done-{{expense.done}}">{{expense.once | currency}}</span>,                      <span class="done-{{expense.done}}">{{expense.monthly | currency}}</span>
-            </li>
-        </ul>
-        <form ng-submit="addExpense()">
-          <input type="text" ng-model="expenseText" size="30"
-                placeholder="add new expense here">
-          <input type="text" ng-model="expenseOne" size="30"
-                placeholder="add one-time amount">
-          <input type="text" ng-model="expenseMonthly" size="30"
-                placeholder="add monthly amount">
-          <input class="btn-primary" type="submit" value="Add Expense Item">
-        </form>
-    </div>
+      <div class="row">
+        <div class="col-md-12">
+        <h2>Expenses</h2>
+          [ <a href="" ng-click="deleteExp()">Delete Expense</a> ]
+          <ul class="unstyled">
+              <li ng-repeat="expense in expenses">
+                  <input type="checkbox" ng-model="expense.done">
+                  <span class="done-{{expense.done}}">{{expense.text}}</span>,
+                  <span class="done-{{expense.done}}">{{expense.once | currency}}</span>,                      <span class="done-{{expense.done}}">{{expense.monthly | currency}}</span>
+              </li>
+          </ul>
+          <form ng-submit="addExpense()">
+            <input type="text" ng-model="expenseText" size="30"
+                  placeholder="add new expense here">
+            <input type="text" ng-model="expenseOne" size="30"
+                  placeholder="add one-time amount">
+            <input type="text" ng-model="expenseMonthly" size="30"
+                  placeholder="add monthly amount">
+            <input class="btn-primary" type="submit" value="Add Expense Item">
+          </form>
+        </div>
+      </div>
+
       <!-- Revenue and Expense Totals -->
-    <div>
-      <h2>Revenue Total</h2>
-        <!-- <div ng-init="{{RvTotalOne = (items | sumOfValue:'once' | currency)}}">
-        {{RvTotalOne}}
-        </div> -->
-         <a href="" ng-click="test()">Test: {{test}}</a>
-        <div>
-          <span ng-model="revTotalOne">One-Time: {{items | sumOfValue:'once' | currency}}</span><br>
-          <span ng-model="revTotalMonthly">Monthly: {{items | sumOfValue:'monthly' | currency}}</span><br>
-          <!-- 1st solution works -->
-          <span>Total: {{(items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12 | currency  }}</span>
+      <div class="row">
+        <div class="col-md-12">
+        <div class="col-md-4">
+          <h2>Revenue Total</h2>
+            <!-- <div ng-init="{{RvTotalOne = (items | sumOfValue:'once' | currency)}}">
+            Test: {{RvTotalOne}}
+            </div> -->
+            <div>
+              <span ng-model="revTotalOne">One-Time: {{items | sumOfValue:'once' | currency}}</span><br>
+              <span ng-model="revTotalMonthly">Monthly: {{items | sumOfValue:'monthly' | currency}}</span><br>
+              <!-- 1st solution works -->
+              <span>Total: {{(items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12 | currency  }}</span>
+            </div>
         </div>
-    </div>
-    <div class="">
-      here: {{revTotalOne + revTotalMonthly}}
-    </div>
-    <div>
-      <h2>Expense Total</h2>
-        <div>
-          <span>One-Time: {{expenses | sumOfValue:'once' | currency}}</span><br>
-          <span>Monthly: {{expenses | sumOfValue:'monthly' | currency}}</span><br>
-          <!-- 1st solution works -->
-          <span>Total: {{(expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12 | currency  }}</span>
+        <div class="col-md-4">
+          <h2>Expense Total</h2>
+            <div>
+              <span>One-Time: {{expenses | sumOfValue:'once' | currency}}</span><br>
+              <span>Monthly: {{expenses | sumOfValue:'monthly' | currency}}</span><br>
+              <!-- 1st solution works -->
+              <span>Total: {{(expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12 | currency  }}</span>
+            </div>
         </div>
-    </div>
 
-      <!-- Contribution -->
-    <div>
-      <h2>Contribution</h2>
-      <div>
-        <span>Contribution Profit Monthly: {{(items | sumOfValue:'monthly') - (expenses | sumOfValue:'monthly') | currency}}</span><br>
-
-
-        <span>Contribution Profit Total: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12)  | currency }}</span><br>
-
-       <span>Contribution Margin: {{(((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12)) / (((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12)) | percentage: 1}} </span><br>
-
-       <!-- <span>Contribution Margin: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly')) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly')) / (items | sumOfValue:'once') + (items | sumOfValue:'monthly')| number: 1}}</span><br> -->
-
-        <span>Capital ROI (Months): {{((expenses | sumOfValue:'once') - (items | sumOfValue:'once')) / ((items | sumOfValue:'monthly') - (expenses | sumOfValue:'monthly')) | number:1  }}</span>
+          <!-- Contribution -->
+        <div class="col-md-4">
+          <h2>Contribution</h2>
+          <div>
+          <span>Contribution Profit Monthly: {{(items | sumOfValue:'monthly') - (expenses | sumOfValue:'monthly') | currency}}</span><br>
+          <span>Contribution Profit Total: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12)  | currency }}</span><br>
+          <span>Contribution Margin: {{(((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12)) / (((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12)) | percentage: 1}} </span><br>
+          <span>Capital ROI (Months): {{((expenses | sumOfValue:'once') - (items | sumOfValue:'once')) / ((items | sumOfValue:'monthly') - (expenses | sumOfValue:'monthly')) | number:1  }}</span>
+          </div>
+        </div>
       </div>
     </div>
-
-
-
-
 
     </div> <!-- CalcCtrl controller end -->
 </body>
