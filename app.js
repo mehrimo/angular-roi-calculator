@@ -44,6 +44,10 @@ angular.module("calcApp", [])
     }
   ];
 
+//   $scope.test: function() {
+//   return this.subTotal() + this.tip();
+// }
+
   $scope.addItem = function() {
     $scope.items.push({
       text: $scope.itemText,
@@ -51,18 +55,11 @@ angular.module("calcApp", [])
       monthly: $scope.itemMonthly,
       done: false
     });
+    // clear input fields after add
     $scope.itemText = "";
-    return $scope.itemText;
-  };
-
-  $scope.remaining = function() {
-    var count;
-    count = 0;
-    angular.forEach($scope.items, function(item) {
-      return count += item.done ? 0 : 1;
-    });
-
-    return count;
+    $scope.itemOne = "";
+    $scope.itemMonthly = "";
+    // return $scope.itemText;
   };
 
   $scope.deleteRv = function() {
@@ -98,8 +95,11 @@ angular.module("calcApp", [])
       monthly: $scope.expenseMonthly,
       done: false
     });
+    // clear input fields after add
     $scope.expenseText = "";
-    return $scope.expenseText;
+    $scope.expenseOne = "";
+    $scope.expenseMonthly = "";
+    // return $scope.expenseText;
   };
 
   $scope.remaining = function() {
@@ -122,6 +122,8 @@ angular.module("calcApp", [])
       }
     });
   };
+
+
 
 //   $scope.revenueTotal = function() {
 //   var total;

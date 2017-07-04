@@ -54,12 +54,19 @@
       <!-- Revenue and Expense Totals -->
     <div>
       <h2>Revenue Total</h2>
+        <!-- <div ng-init="{{RvTotalOne = (items | sumOfValue:'once' | currency)}}">
+        {{RvTotalOne}}
+        </div> -->
+         <a href="" ng-click="test()">Test: {{test}}</a>
         <div>
           <span ng-model="revTotalOne">One-Time: {{items | sumOfValue:'once' | currency}}</span><br>
           <span ng-model="revTotalMonthly">Monthly: {{items | sumOfValue:'monthly' | currency}}</span><br>
           <!-- 1st solution works -->
           <span>Total: {{(items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12 | currency  }}</span>
         </div>
+    </div>
+    <div class="">
+      here: {{revTotalOne + revTotalMonthly}}
     </div>
     <div>
       <h2>Expense Total</h2>
