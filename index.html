@@ -2,18 +2,22 @@
 <html ng-app="calcApp">
 <head>
   <title>ROI</title>
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <script src="https://use.fontawesome.com/d36af44873.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div  class="container" ng-controller="CalcCtrl">
-      <h1 class="text-center">ROI Calculator</h1>
+      <h1 class="text-center">ROI Calculator <i class="fa fa-calculator" aria-hidden="true"></i></h1>
       <!-- List inputs-->
       <div class="row">
-        <div class="col-md-12">
-          <h2>Revenue Items</h2>
+        <div class="col-md-12 details">
+          <div class="header">
+            <p class="title">Enter Revenue Details</p>
+          </div>
+          <div class="list">
             [ <a href="" ng-click="deleteRv()">Delete Item</a> ]
             <ul class="unstyled">
                 <li ng-repeat="item in items">
@@ -22,20 +26,24 @@
                     <span class="done-{{item.done}}">{{item.once | currency}}</span>,                      <span class="done-{{item.done}}">{{item.monthly | currency}}</span>
                 </li>
             </ul>
-            <form ng-submit="addItem()">
+            <form class="form-group clearfix" ng-submit="addItem()">
               <input type="text" ng-model="itemText" size="30"
-                    placeholder="add new item here">
-              <input type="text" ng-model="itemOne" size="30"
-                    placeholder="add one-time amount">
-              <input type="text" ng-model="itemMonthly" size="30"
-                    placeholder="add monthly amount">
-              <input class="btn-primary" type="submit" value="Add Revenue Item">
+                    placeholder="add new item here" required>
+              <input type="number" ng-model="itemOne" size="30"
+                    placeholder="add one-time amount" required>
+              <input type="number" ng-model="itemMonthly" size="30"
+                    placeholder="add monthly amount" required>
+              <input class="btn btn-primary btn-sm" type="submit" value="Add Revenue Item">
             </form>
+          </div>
         </div>
     </div>
       <div class="row">
         <div class="col-md-12">
-        <h2>Expenses</h2>
+          <div class="header">
+            <p class="title">Enter Expense Details</p>
+          </div>
+          <div class="list">
           [ <a href="" ng-click="deleteExp()">Delete Expense</a> ]
           <ul class="unstyled">
               <li ng-repeat="expense in expenses">
@@ -44,27 +52,30 @@
                   <span class="done-{{expense.done}}">{{expense.once | currency}}</span>,                      <span class="done-{{expense.done}}">{{expense.monthly | currency}}</span>
               </li>
           </ul>
-          <form ng-submit="addExpense()">
-            <input type="text" ng-model="expenseText" size="30"
-                  placeholder="add new expense here">
-            <input type="text" ng-model="expenseOne" size="30"
-                  placeholder="add one-time amount">
-            <input type="text" ng-model="expenseMonthly" size="30"
-                  placeholder="add monthly amount">
-            <input class="btn-primary" type="submit" value="Add Expense Item">
+          <form class="form-group clearfix" ng-submit="addExpense()">
+            <input form-group type="text" ng-model="expenseText" size="30"
+                  placeholder="add new expense here" required>
+            <input type="number" ng-model="expenseOne" size="30"
+                  placeholder="add one-time amount" required>
+            <input type="number" ng-model="expenseMonthly" size="30"
+                  placeholder="add monthly amount" required>
+            <input class="btn btn-primary btn-sm" type="submit" value="Add Expense Item">
           </form>
+        </div>
         </div>
       </div>
 
       <!-- Revenue and Expense Totals -->
       <div class="row">
-        <div class="col-md-12">
+        <div>
         <div class="col-md-4">
-          <h2>Revenue Total</h2>
+          <div class="header">
+            <p class="title">Revenue Total</p>
+          </div>
             <!-- <div ng-init="{{RvTotalOne = (items | sumOfValue:'once' | currency)}}">
             Test: {{RvTotalOne}}
             </div> -->
-            <div>
+            <div class="results">
               <span ng-model="revTotalOne">One-Time: {{items | sumOfValue:'once' | currency}}</span><br>
               <span ng-model="revTotalMonthly">Monthly: {{items | sumOfValue:'monthly' | currency}}</span><br>
               <!-- 1st solution works -->
@@ -72,8 +83,10 @@
             </div>
         </div>
         <div class="col-md-4">
-          <h2>Expense Total</h2>
-            <div>
+          <div class="header">
+            <p class="title">Expense Total</p>
+          </div>
+            <div class="results">
               <span>One-Time: {{expenses | sumOfValue:'once' | currency}}</span><br>
               <span>Monthly: {{expenses | sumOfValue:'monthly' | currency}}</span><br>
               <!-- 1st solution works -->
@@ -83,8 +96,10 @@
 
           <!-- Contribution -->
         <div class="col-md-4">
-          <h2>Contribution</h2>
-          <div>
+          <div class="header">
+            <p class="title">Contribution</p>
+          </div>
+          <div class="results">
           <span>Contribution Profit Monthly: {{(items | sumOfValue:'monthly') - (expenses | sumOfValue:'monthly') | currency}}</span><br>
           <span>Contribution Profit Total: {{((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12)  | currency }}</span><br>
           <span>Contribution Margin: {{(((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12) - ((expenses | sumOfValue:'once') + (expenses | sumOfValue:'monthly') * 12)) / (((items | sumOfValue:'once') + (items | sumOfValue:'monthly') * 12)) | percentage: 1}} </span><br>

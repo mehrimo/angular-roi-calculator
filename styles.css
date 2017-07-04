@@ -1,9 +1,16 @@
+body {
+    background-color: lightblue;
+}
+
+
 h2 {
   color: #484A4C;
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Lato', sans-serif;
+  color: #384554;
+  letter-spacing: 0.0425em;
 }
 
 h1 {
@@ -13,33 +20,42 @@ h1 {
 .form-control:focus {
   box-shadow: none;
   outline: 0;
-  border: 2px solid #333;
+  border: 2px solid #000;
 }
 
 .title {
-  background: #ddd;
+  background: #A7C6DA;
   padding: 15px;
-  font-size: 16px;
+  font-size: 18px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   margin-bottom: 0;
+  font-weight: 400;
+  letter-spacing: 0.0625em;
 }
 
-.calculator,
-.button-actions,
-.charges {
+.list,
+.results {
   padding: 15px;
+  background-color: white;
+  margin-bottom: 15px;
 }
 
-.calculator,
-.charges {
+.details {
+  /*padding: 15px;*/
+  /*background-color: white;
+  margin-bottom: 15px;*/
+}
+
+.list,
+.results {
   border: 1px solid #ddd;
   display: inline-block;
   width: 100%;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .button-actions {
